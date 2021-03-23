@@ -1,0 +1,6 @@
+  
+-- DROP DATABASE
+DROP DATABASE IF EXISTS movie_Thumbs_db;
+
+-- CREATE DATABASE
+CREATE DATABASE movie_Thumbs_db;
