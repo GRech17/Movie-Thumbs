@@ -47,7 +47,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Static directory
-
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
