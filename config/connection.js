@@ -1,14 +1,19 @@
+// import the Sequelize constructor from the library
 const Sequelize = require('sequelize');
 
-require('dotenv').config();
-
-// create connection to our db
+// Creates mySQL connection using Sequelize
+// Include your MySQL user/password information
 const sequelize = process.env.JAWSDB_URL
   ? new Sequelize(process.env.JAWSDB_URL)
-  : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
+  : new Sequelize('movie_Thumbs_db', 'root', '0220', {
       host: 'localhost',
+      port: 3306,
       dialect: 'mysql',
-      port: 3306
+      define: {
+        timestamps: false
+    }
     });
+
+// Exports the connection for other files to use
 
 module.exports = sequelize;
