@@ -1,4 +1,3 @@
-  
 // import the Sequelize constructor from the library
 const Sequelize = require('sequelize');
 
@@ -16,4 +15,5 @@ const sequelize = process.env.JAWSDB_URL
     });
 
 // Exports the connection for other files to use
+
 module.exports = sequelize;
