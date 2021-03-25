@@ -6,19 +6,29 @@ let User = require('./User');
 
 Comment.belongsTo(User, {
   foreignKey: 'user_id',
+  onDelete: 'cascade'
+});
+
+Comment.belongsTo(Favorite, {
+  foreignKey: 'favorite_id',
+  onDelete: 'cascade'
 });
 
 
 Favorite.belongsTo(User, {
-foreignKey: 'user_id'
+foreignKey: 'user_id',
+onDelete:'cascade'
 });
 
 
 Favorite.hasMany(Comment, {
-foreignKey: 'favorite_id'
+foreignKey: 'favorite_id',
+onDelete: 'cascade'
 });
+
 User.hasMany(Comment, {
     foreignKey: 'user_id',
+    onDelete: 'cascade'
   });
   
 User.hasMany(Favorite, {

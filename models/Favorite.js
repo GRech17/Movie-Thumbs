@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-const { Favorite } = require('.');
 const sequelize = require('../config/connection');
 
 // create our Favorite model
@@ -10,6 +9,7 @@ Favorite.init(
     {
       id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         primaryKey: true,
         autoIncrement: true
       },

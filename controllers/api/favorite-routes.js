@@ -74,7 +74,6 @@ router.post('/', (req, res) => {
   if (req.session) {
     Favorite.create({
       title: req.body.title,
-      post_url: req.body.post_url,
       user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
