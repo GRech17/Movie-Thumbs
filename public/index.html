@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Movie Thumbs</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
@@ -33,14 +35,15 @@
       <div class="container">
         <br><br>
         <h1 class="header center teal-text text-lighten-2">
-          Like films you've watched. <br> 
+          Like films you've watched. <br>
           See what's popular. <br>
           Save those you want to see.</h1>
-          <!-- <div class="row center">
+        <!-- <div class="row center">
             <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
           </div> -->
         <div class="row center">
-          <a href="http:" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Sign up - It's Free!</a>
+          <a href="http:" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Sign up - It's
+            Free!</a>
         </div>
         <br><br>
 
@@ -49,7 +52,7 @@
     <div class="parallax"><img src="assets/thumbs.png" alt="thumbs army background img 1"></div>
   </div>
 
-<!-- TO BE USED IN THE ACUTAL DASHBOARD PAGE
+  <!-- TO BE USED IN THE ACUTAL DASHBOARD PAGE
   <div class="container">
     <div class="section">
 
@@ -95,11 +98,27 @@
   <div class="container">
     <div class="section">
 
-      <div class="row" >
+      <div class="row">
         <div class="col s12 center" id="poplist">
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h4>Popular List</h4>
-          <p class="left-align light">Enter list of populated movies tab here</p>
+          <div class="left-align light">
+            <!-- first movie -->
+            <p id="popular1"></p>
+            <img src="" alt="random movie poster" id="popular-poster1">
+            <!-- second movie -->
+            <p id="popular2"></p>
+            <img src="" alt="random movie poster" id="popular-poster2">
+            <!-- third movie -->
+            <p id="popular3"></p>
+            <img src="" alt="random movie poster" id="popular-poster3">
+            <!-- fourth movie -->
+            <p id="popular4"></p>
+            <img src="" alt="random movie poster" id="popular-poster4">
+            <!-- fifth movie -->
+            <p id="popular5"></p>
+            <img src="" alt="random movie poster" id="popular-poster5">
+          </div>
         </div>
       </div>
 
@@ -123,7 +142,9 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our
+            full time job. Any amount would help support and continue development on this project and is greatly
+            appreciated.</p>
 
 
         </div>
@@ -150,7 +171,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" >Project Team Buddies</a>
+        Made by <a class="brown-text text-lighten-3">Project Team Buddies</a>
       </div>
     </div>
   </footer>
@@ -160,6 +181,8 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script src="./javascript/show-popular-movies.js"></script>
 
-  </body>
+</body>
+
 </html>
