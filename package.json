@@ -1,5 +1,5 @@
 {
-  "name": "movie-thumbs",
+  "name": "Movie-Thumbs",
   "version": "1.0.0",
   "description": "UCLA Bootcamp 2nd Project",
   "main": "server.js",
@@ -14,7 +14,6 @@
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2"
   },
-  
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,13 +23,10 @@
     "type": "git",
     "url": "git+https://github.com/GRech17/Movie-Thumbs.git"
   },
-
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/GRech17/Movie-Thumbs/issues"
   },
-
   "homepage": "https://github.com/GRech17/Movie-Thumbs#readme"
-
 }
