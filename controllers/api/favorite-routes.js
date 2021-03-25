@@ -1,21 +1,19 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment } = require('../../models');
+const { Favorite, User, Comment } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
-   Post.findAll({
+   Favorite.findAll({
     attributes: [
       'id',
-      'post_url',
       'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      'user_id'
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'favorite_id', 'user_id'],
         include: {
           model: User,
           attributes: ['username']
@@ -35,20 +33,19 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Post.findOne({
+  Favorite.findOne({
     where: {
       id: req.params.id
     },
     attributes: [
       'id',
-      'post_url',
       'title',
-      'created_at',
+      'user_id'
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'favorite_id', 'user_id'],
         include: {
           model: User,
           attributes: ['username']
@@ -62,7 +59,7 @@ router.get('/:id', (req, res) => {
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No favorites found with this id' });
         return;
       }
       res.json(dbPostData);
@@ -75,7 +72,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   if (req.session) {
-    Post.create({
+    Favorite.create({
       title: req.body.title,
       post_url: req.body.post_url,
       user_id: req.session.user_id
@@ -89,7 +86,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Post.update(
+  Favorite.update(
     {
       title: req.body.title
     },
@@ -114,14 +111,14 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   console.log('id', req.params.id);
-  Post.destroy({
+  Favorite.destroy({
     where: {
       id: req.params.id
     }
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No favorites found with this id' });
         return;
       }
       res.json(dbPostData);
