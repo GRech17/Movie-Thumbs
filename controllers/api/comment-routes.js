@@ -29,7 +29,7 @@ router.post('/', withAuth, (req, res) => {
     Comment.create({
       comment_text: req.body.comment_text,
       user_id: req.session.user_id,
-      post_id: req.body.post_id
+      favorite_id: req.body.favorite_id
     })
       .then(dbCommentData => res.json(dbCommentData))
       .catch(err => {
@@ -76,6 +76,6 @@ router.delete('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
       });
   }
-});
+);
 
 module.exports = router;
