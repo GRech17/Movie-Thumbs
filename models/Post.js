@@ -1,11 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
+const { Post } = require('.');
 const sequelize = require('../config/connection');
 
 // create our Post model
 class Movie extends Model {}
 
 // create fields/columns for Post model
-Movie.init(
+Post.init(
     {
       id: {
         type: DataTypes.INTEGER,

@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Movie, User, Comment } = require('../../models');
+const { Post, User, Comment } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
   console.log('======================');
-  Movie.findAll({
+  Post.findAll({
     attributes: [
       'id',
       'title',
@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Movie.findOne({
+  Post.findOne({
     where: {
       id: req.params.id
     },
@@ -84,7 +84,7 @@ router.get('/:id', (req, res) => {
 // });
 
 router.put('/:id', (req, res) => {
-  Movie.update(
+  Post.update(
     {
       title: req.body.title
     },
@@ -109,7 +109,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   console.log('id', req.params.id);
-  Movie.destroy({
+  Post.destroy({
     where: {
       id: req.params.id
     }
