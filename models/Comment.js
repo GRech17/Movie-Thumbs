@@ -47,10 +47,10 @@ Comment.init(
     }
 
   },
-  created_at: {
-    type: DataTypes.DATE,
-    allowNull: true
-  }
+  // created_at: {
+  //   type: DataTypes.DATE,
+  //   allowNull: true
+  // }
   },
  
   {

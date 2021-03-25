@@ -17,20 +17,12 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      post_content: {
-        type: DataTypes.TEXT,
-        allowNull: true
-      },
       user_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'user',
           key: 'id'
         }
-      },
-      created_at: {
-        type: DataTypes.DATE,
-        allowNull: true
       }
     },
     {
