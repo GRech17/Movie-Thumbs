@@ -4,17 +4,18 @@ const { Post, User, Comment } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
-  console.log('======================');
-  Post.findAll({
+   Post.findAll({
     attributes: [
       'id',
+      'post_url',
       'title',
       'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'movie_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -40,13 +41,14 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
+      'post_url',
       'title',
       'created_at',
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'movie_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -71,17 +73,20 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// router.put('/upvote', (req, res) => {
-//   // custom static method created in models/Post.js
-//   if (req.session) {
-//     Movie.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-//       .then(updatedVoteData => res.json(updatedVoteData))
-//       .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
-//   }
-// });
+router.post('/', (req, res) => {
+  if (req.session) {
+    Post.create({
+      title: req.body.title,
+      post_url: req.body.post_url,
+      user_id: req.session.user_id
+    })
+      .then(dbPostData => res.json(dbPostData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
+});
 
 router.put('/:id', (req, res) => {
   Post.update(
@@ -116,7 +121,7 @@ router.delete('/:id', (req, res) => {
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No movie found with this id' });
+        res.status(404).json({ message: 'No post found with this id' });
         return;
       }
       res.json(dbPostData);
