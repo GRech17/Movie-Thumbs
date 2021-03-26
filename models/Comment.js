@@ -29,11 +29,11 @@ Comment.init(
           len: [4]
         }
       },
-    post_id: {
+    favorite_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'post',
+          model: 'favorite',
           key: 'id'
         }
     
