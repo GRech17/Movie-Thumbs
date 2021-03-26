@@ -10,22 +10,24 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+
 <body>
-  <nav class="white" role="navigation">
+  <header>
+<nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Movie Thumbs</a>
       <ul class="right hide-on-med-and-down">
         <li>
-            {{#if loggedIn}}
+            {{!-- {{#if loggedIn}} --}}
             <a href="/login">Sign In</a>
             <a href="/dashboard" class="navbar-item is-hoverable pt-1">Dashboard</a>
             <a href="#">Popular List</a>
             <a href="#">My List</a>
             <button id="logout" class="button is-danger">Logout</button>
-            {{else}}
+            {{!-- {{else}} --}}
             <a href="/login">Sign In</a>
             <a href="#">Popular List</a>
-            {{/if}}
+            {{!-- {{/if}} --}}
         </li>
       </ul>
 
@@ -37,123 +39,11 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">
-          Like films you've watched. <br> 
-          See what's popular. <br>
-          Save those you want to see.</h1>
-          <!-- <div class="row center">
-            <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-          </div> -->
-        <div class="row center">
-          <a href="http:" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Sign up - It's Free!</a>
-        </div>
-        <br><br>
-
-      </div>
-    </div>
-    <div class="parallax"><img src="assets/thumbs.png" alt="Unsplashed background img 1"></div>
-  </div>
-
-
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 dark">
-            Add a review. Add your favorites to your own list.<br>
-            Enter Comments placecard here.
-          </h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="assets/spilledpopcorn.png" alt="Unsplashed background img 2"></div>
-  </div>
-
-  <div class="container">
-    <div class="section">
-
-      <div class="row" >
-        <div class="col s12 center" id="poplist">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Popular List</h4>
-          <p class="left-align light">Enter list of populated movies tab here</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">modern responsive front-end framework based on Material Design</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="assets/redseats.png" alt="Unsplashed background img 3"></div>
-  </div>
-
-    <main>
-        {{{ body }}}
-    </main>
-
-
-  <footer class="page-footer teal">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li>
-                <a class="white-text" href="/login/">Sign In</a>
-                {{#if loggedIn}}
-                <a class="white-text" href="/dashboard">Dashboard</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">GitHub 1</a></li>
-            <li><a class="white-text" href="#!">GitHub 2</a></li>
-            <li><a class="white-text" href="#!">GitHub 3</a></li>
-            <li><a class="white-text" href="#!">GitHub 4</a></li>
-            <li><a class="white-text" href="#!">GitHub 5</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="brown-text text-lighten-3" >Project Team Buddies</a>
-      </div>
-    </div>
-  </footer>
-
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-
-  {{#if loggedIn}}
-    <script src="/public/javascript/logout.js"></script>
-  {{/if}}
+</header>
+  
+<main>
+ {{{body}}}
+</main> 
 
   </body>
 </html>
