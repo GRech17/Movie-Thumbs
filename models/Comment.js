@@ -21,7 +21,7 @@ Comment.init(
           len: [1]
         }
       },
-    favorite_id: {
+  favorite_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {

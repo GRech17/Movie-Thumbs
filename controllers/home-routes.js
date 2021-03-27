@@ -1,4 +1,4 @@
-const sequelize = require('../config/connection');
+
 const { Favorite, User, Comment } = require('../models');
 const router = require('express').Router();
 
