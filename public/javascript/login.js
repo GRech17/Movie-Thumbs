@@ -12,9 +12,7 @@ async function loginFormHandler(event) {
           password
         }),
         headers: { 'Content-Type': 'application/json' },
-        validate: function validateEmail(username) {
-          return validator.validate(username);
-      }
+       
       });
   
       if (response.ok) {
