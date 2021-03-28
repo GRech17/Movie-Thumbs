@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
-const validator = require("email-validator");
+const validator = require("validator");
 
 class User extends Model {
     checkPassword(loginPw) {
@@ -32,14 +32,14 @@ User.init(
             len: [4]
           }
         },
-        favorite_id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          references: {
-            model: 'favorite',
-            key: 'movie_id'
-          }
-        },
+        // favorite_id: {
+        //   type: DataTypes.INTEGER,
+        //   allowNull: false,
+        //   references: {
+        //     model: 'favorite',
+        //     key: 'movie_id'
+        //   }
+        // },
       },
   {
       hooks: {
