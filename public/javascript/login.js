@@ -15,7 +15,9 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        console.log('success');
+
+        document.location.replace('/ToT');
       } else {
         alert(response.statusText);
       }
