@@ -20,7 +20,7 @@
             {{#if loggedIn}}
 
              <li><a href="/ToT" class="navbar-item is-hoverable pt-1">This or That</a></li>
-             <li><a href="/likeList">My List</a></li>
+             <li><a href="/lists">My List</a></li>
              <li><button id="logout" class="button is-danger">Logout</button></li>
             {{else}}
              <li><a href="/login">Sign In</a></li>
@@ -83,8 +83,8 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <!--script src="js/materialize.js"></script>
+  <!--script src="js/init.js"></script-->
 
   {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
