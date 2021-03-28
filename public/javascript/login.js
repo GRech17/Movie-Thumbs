@@ -8,13 +8,11 @@ async function loginFormHandler(event) {
       const response = await fetch('/api/users/login', {
         method: 'post',
         body: JSON.stringify({
-          email,
+          username,
           password
         }),
         headers: { 'Content-Type': 'application/json' },
-        validate: function validateEmail(username) {
-          return validator.validate(username);
-      }
+       
       });
   
       if (response.ok) {

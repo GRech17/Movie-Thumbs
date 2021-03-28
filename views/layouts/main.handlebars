@@ -7,8 +7,8 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
 <body>
@@ -17,16 +17,15 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="/" class="brand-logo">Movie Thumbs</a>
       <ul class="right hide-on-med-and-down">
-        <li>
             {{#if loggedIn}}
-            <a href="/ToT" class="navbar-item is-hoverable pt-1">This or That</a>
-            <a href="/lists">My Lists</a>
-            <button id="logout" class="button is-danger">Logout</button>
+
+             <li><a href="/ToT" class="navbar-item is-hoverable pt-1">This or That</a></li>
+             <li><a href="/likeList">My List</a></li>
+             <li><button id="logout" class="button is-danger">Logout</button></li>
             {{else}}
-            <a href="/login">Sign In</a>
-            <a href="#">Popular List</a>
+             <li><a href="/login">Sign In</a></li>
+             <li><a href="#">Popular List</a></li>
             {{/if}}
-        </li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">

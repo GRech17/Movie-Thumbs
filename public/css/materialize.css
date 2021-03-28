@@ -2827,7 +2827,6 @@ video.responsive-video {
 }
 
 .parallax-container .parallax img {
-  opacity: 0;
   position: absolute;
   left: 50%;
   bottom: 0;
