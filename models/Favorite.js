@@ -13,6 +13,10 @@ Favorite.init(
         primaryKey: true,
         autoIncrement: true
       },
+      listTitle: {
+        type: DataTypes.STRING,
+        allowNull:false,
+      },
       title: {
         type: DataTypes.STRING,
         allowNull: false
@@ -23,14 +27,6 @@ Favorite.init(
           model: 'user',
           key: 'id'
         }
-      },
-      movie_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      favorited: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
       }
     },
     {

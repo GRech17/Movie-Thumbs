@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
+const validator = require("email-validator");
 
 class User extends Model {
     checkPassword(loginPw) {
@@ -19,7 +20,10 @@ User.init(
         username: {
           type: DataTypes.STRING,
           allowNull: false,
-          unique: true
+          unique: true,
+          validate: function validateEmail(username) {
+            return validator.validate(username);
+        }
         },
         password: {
           type: DataTypes.STRING,
