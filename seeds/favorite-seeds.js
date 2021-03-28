@@ -3,7 +3,8 @@ const { Favorite } = require('../models');
 const FavoriteData = [
    
     {
-        title: "World Health Organization Investigators Tied to China?!",
+        listTitle: 'Liked Movies',
+        title: "Zoolander",
         user_id: 5
     }
 ]
