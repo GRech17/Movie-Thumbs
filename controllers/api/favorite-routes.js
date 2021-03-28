@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
    Favorite.findAll({
     attributes: [
       'id',
+      'listTitle',
       'title',
       'user_id'
     ],
@@ -39,6 +40,7 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
+      'listTitle',
       'title',
       'user_id'
     ],
