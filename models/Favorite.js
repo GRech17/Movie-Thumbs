@@ -23,6 +23,14 @@ Favorite.init(
           model: 'user',
           key: 'id'
         }
+      },
+      movie_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      favorited: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
       }
     },
     {

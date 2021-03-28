@@ -25,10 +25,17 @@ User.init(
           type: DataTypes.STRING,
           allowNull: false,
           validate: {
-            len: [1]
+            len: [4]
           }
-        }
-        
+        },
+        favorite_id: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'favorite',
+            key: 'movie_id'
+          }
+        },
       },
   {
       hooks: {

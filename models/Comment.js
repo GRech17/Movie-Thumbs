@@ -21,16 +21,7 @@ Comment.init(
           len: [1]
         }
       },
-    favorite_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'favorite',
-          key: 'id'
-        }
-    
-  },
-  user_id: {
+     user_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
