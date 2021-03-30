@@ -21,6 +21,10 @@ Favorite.init(
         type: DataTypes.STRING,
         allowNull: false
       },
+      posterImg: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       user_id: {
         type: DataTypes.INTEGER,
         references: {
