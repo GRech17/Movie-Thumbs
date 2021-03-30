@@ -8,12 +8,14 @@
 
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="images/office.jpg">
+                {{!-- <img class="activator" src="images/office.jpg"> --}}
                 </div>
                 <div class="card-content">
                     {{#each displayed}}
+                    {{#if @first}}
                         <img src=https://www.themoviedb.org/t/p/w150_and_h225_bestv2/{{poster_path}}>
                         {{title}}
+                        {{/if}}
                     {{/each}}
                 <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
                 <p>
@@ -31,10 +33,16 @@
 
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="images/office.jpg">
+                {{!-- <img class="activator" src="images/office.jpg"> --}}
                 </div>
                 <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Movie Title<i class="material-icons right">more_vert</i></span>
+                        {{#each displayed}}
+                    {{#if @last}}
+                        <img src=https://www.themoviedb.org/t/p/w150_and_h225_bestv2/{{poster_path}}>
+                        {{title}}
+                        {{/if}}
+                    {{/each}}
+                <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
                 <p>
                     <a href="#">Love❤️ </a>
                     <a href="#">Not a fan🚫</a>
