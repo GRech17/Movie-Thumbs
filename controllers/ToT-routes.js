@@ -9,8 +9,7 @@ let randomPage = Math.floor(Math.random() * (50 - 1) + 1);
 router.get('/', withAuth, (req, res) => {
     axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${randomPage}`)
     .then(function (response) {
-        movieChoices = response.data.results;
-        console.log(movieChoices)    
+        movieChoices = response.data.results;  
       })
       .catch(function (error) {
         console.log(error);
@@ -48,13 +47,6 @@ router.get('/', withAuth, (req, res) => {
           res.status(500).json(err);
         });
       });
-
-    // console.log(req.session);
-    // console.log('======================');
-
-
-
-
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
