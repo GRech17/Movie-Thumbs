@@ -13,7 +13,7 @@
 
 <body>
   <header>
-<nav class="white" role="navigation">
+<nav class="teal" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="/" class="brand-logo">Movie Thumbs</a>
       <ul class="right hide-on-med-and-down">
@@ -21,7 +21,7 @@
 
              <li><a href="/ToT" class="navbar-item is-hoverable pt-1">This or That</a></li>
              <li><a href="/lists">My List</a></li>
-             <li><button id="logout" class="button is-danger">Logout</button></li>
+             <li><button id="logout" class="button red">Logout</button></li>
             {{else}}
              <li><a href="/login">Sign In</a></li>
              <li><a href="#">Popular List</a></li>
@@ -42,7 +42,7 @@
  {{{body}}}
 </main> 
 
-  <footer class="page-footer teal">
+  <footer class="page-footer black">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -55,7 +55,7 @@
           <h5 class="white-text">Settings</h5>
           <ul>
             <li>
-                <a class="white-text" href="/login">Sign In</a>
+                <a class="white-text" href="/login">Sign In</a> <br>
                 {{!-- {{#if loggedIn}} --}}
                 <a class="white-text" href="/ToT">This or That</a>
             </li>
