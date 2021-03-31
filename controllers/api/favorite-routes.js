@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
       'id',
       'listTitle',
       'title',
+      'posterImg',
       'user_id'
     ],
     include: [
