@@ -1,52 +1,59 @@
 <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="title center teal-text text-lighten-2">
-          Like films you've watched. <br> 
-          See what's popular. <br>
-          Save those you want to see.</h1>
-          <!-- <div class="row center">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="title center teal-text text-lighten-2">
+        Like films you've watched. <br>
+        See what's popular. <br>
+        Save those you want to see.</h1>
+      <!-- <div class="row center">
             <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
           </div> -->
-        <div class="row center">
-          <a href="http:" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Sign up - It's Free!</a>
-        </div>
-        <br><br>
+      <div class="row center">
+        <a href="http:" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Sign up - It's
+          Free!</a>
+      </div>
+      <br><br>
 
+    </div>
+  </div>
+  <div class="parallax"><img src="./assets/thumbs.png" alt="thumb army background img 1"></div>
+</div>
+
+
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h1 class="header col s12 dark">
+          Popular List
+        </h1>
+        {{#each displayed}}
+        {{title}}
+        <br>
+        <img src=https://www.themoviedb.org/t/p/w150_and_h225_bestv2/{{poster_path}}>
+        {{/each}}
       </div>
     </div>
-    <div class="parallax"><img src="./assets/thumbs.png" alt="thumb army background img 1"></div>
   </div>
+  <div class="parallax"><img src="./assets/spilledpopcorn.png" alt="popcorn red background img 2"></div>
+</div>
 
 
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h1 class="header col s12 dark">
-            Popular List
-          </h1>
-        </div>
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h1 class="header col s12 light">Simple as one click. <br> Add a review. <br> Your own list of likes.<br>
+        </h1>
       </div>
     </div>
-    <div class="parallax"><img src="./assets/spilledpopcorn.png" alt="popcorn red background img 2"></div>
   </div>
+  <div class="parallax"><img src="./assets/redseats.png" alt="movie theater seats background img 3"></div>
+</div>
 
+</body>
 
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h1 class="header col s12 light">Simple as one click. <br> Add a review. <br> Your own list of likes.<br>
-            </h1>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="./assets/redseats.png" alt="movie theater seats background img 3"></div>
-  </div>
-
- </body>
 </html>
