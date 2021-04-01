@@ -20,10 +20,50 @@
   <div class="parallax"><img src="./assets/thumbs.png" alt="thumb army background img 1"></div>
 </div>
 
+<div class="container">
+  <div class="row center">
+    <h1 class="header col s12 dark">
+      Popular List
+    </h1>
+
+
+<div class="row">
+  <div class="col s2">
+    <p id="popular1"></p>
+    <img src="" alt="random movie poster" id="popular-poster1">
+  </div>
+
+  <div class="col s2">
+    <p id="popular2"></p>
+    <img src="" alt="random movie poster" id="popular-poster2">
+  </div>
+
+  <div class="col s2">
+    <p id="popular3"></p>
+    <img src="" alt="random movie poster" id="popular-poster3">
+  </div>
+
+  <div class="col s2">
+    <p id="popular4"></p>
+    <img src="" alt="random movie poster" id="popular-poster4">
+  </div>
+
+  <div class="col s2">
+    <p id="popular5"></p>
+    <img src="" alt="random movie poster" id="popular-poster5">
+  </div>
+
+</div>
+
+
+  </div>
+</div>
+</div>
 
 
 
-<div class="parallax-container valign-wrapper">
+{{!-- THIS SHOWS ALL 20 POPULAR MOVIES COMMENTED OUT FOR PRESENTATION --}}
+{{!-- <div class="parallax-container valign-wrapper">
   <div class="section no-pad-bot">
     <div class="container">
       <div class="row center">
@@ -39,7 +79,7 @@
     </div>
   </div>
   <div class="parallax"><img src="./assets/spilledpopcorn.png" alt="popcorn red background img 2"></div>
-</div>
+</div> --}}
 
 
 <div class="parallax-container valign-wrapper">
@@ -57,3 +97,48 @@
 </body>
 
 </html>
+
+<script>
+  let api_key = "068bcb78c00e7bd39492e93efa6cd1c2"
+
+  // fetch request to pull movies
+  fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      // query selectors to display popular movie list
+      // popular movie list
+      let popular1 = document.querySelector('#popular1');
+      let popular2 = document.querySelector('#popular2');
+      let popular3 = document.querySelector('#popular3');
+      let popular4 = document.querySelector('#popular4');
+      let popular5 = document.querySelector('#popular5');
+      // popular movie poster
+      let popularPoster1 = document.querySelector('#popular-poster1');
+      let popularPoster2 = document.querySelector('#popular-poster2');
+      let popularPoster3 = document.querySelector('#popular-poster3');
+      let popularPoster4 = document.querySelector('#popular-poster4');
+      let popularPoster5 = document.querySelector('#popular-poster5');
+      // end query selectors
+
+      // =============================================================
+      // =============================================================
+      // =============================================================
+
+      // use API to display popular movie list
+      // POPULAR MOVIE LIST 
+      popular1.innerHTML = response.results[1].title;
+      popular2.innerHTML = response.results[2].title;
+      popular3.innerHTML = response.results[3].title;
+      popular4.innerHTML = response.results[4].title;
+      popular5.innerHTML = response.results[5].title;
+
+      // POPULAR MOVIE POSTER
+      popularPoster1.src = 'https://www.themoviedb.org/t/p/w150_and_h225_bestv2/' + response.results[1].poster_path;
+      popularPoster2.src = 'https://www.themoviedb.org/t/p/w150_and_h225_bestv2/' + response.results[2].poster_path;
+      popularPoster3.src = 'https://www.themoviedb.org/t/p/w150_and_h225_bestv2/' + response.results[3].poster_path;
+      popularPoster4.src = 'https://www.themoviedb.org/t/p/w150_and_h225_bestv2/' + response.results[4].poster_path;
+      popularPoster5.src = 'https://www.themoviedb.org/t/p/w150_and_h225_bestv2/' + response.results[5].poster_path;
+    });
+</script>
