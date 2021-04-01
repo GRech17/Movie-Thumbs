@@ -1,5 +1,5 @@
 let api_key = "068bcb78c00e7bd39492e93efa6cd1c2"
-
+        
 // fetch request to pull movies
 fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`)
     .then(function (response) {
@@ -24,7 +24,7 @@ fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=e
         // =============================================================
         // =============================================================
         // =============================================================
-        
+
         // use API to display popular movie list
         // POPULAR MOVIE LIST 
         popular1.innerHTML = response.results[1].title;
