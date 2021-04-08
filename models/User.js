@@ -32,6 +32,11 @@ User.init(
             len: [4]
           }
         },
+        watchlist: {
+          type: DataTypes.STRING,
+          allowNull: true
+         
+        }
         // favorite_id: {
         //   type: DataTypes.INTEGER,
         //   allowNull: false,
