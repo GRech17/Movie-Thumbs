@@ -20,16 +20,23 @@
                         {{/each}}
                         <span class="card-title activator grey-text text-darken-4"><i
                                 class="material-icons right">more_vert</i></span>
-                            <button type="button" class="likeBtn">Like👍 </button>
-                            <button type="button" class="dislikeBtn">Not a fan👎 </button>
+                            <button type="button" class="likeBtn" id="increment">Like👍 </button>
+                            <button type="button" class="dislikeBtn" id="decrement">Not a fan👎 </button>
                             <button type="button" class="watchBtn">Add to watch list✅</button>
+                        <h5>👍 : <span id="count">0</span></h5>
+                        <h5>👎 : <span id="downcount">0</span></h5>
+                        <script>
+                        let count = 1;
+                        let downcount = 0;
 
-                    </div>
-
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Movie Title<i
-                                class="material-icons right">close</i></span>
-                        <p>Here is some more information about this movie that is only revealed once clicked on.</p>
+                        document.getElementById("increment").addEventListener("click", function() {
+                        document.getElementById("count").innerHTML = count++;
+                        });
+                        document.getElementById("decrement").addEventListener("click", function() {
+                        document.getElementById("downcount").innerHTML = downcount--;
+                        });
+                        
+                        </script>
                     </div>
                 </div>
 
@@ -47,15 +54,21 @@
                         {{/each}}
                         <span class="card-title activator grey-text text-darken-4"><i
                                 class="material-icons right">more_vert</i></span>
-                            <button type="button" class="likeBtn">Love❤️</button>
-                            <button type="button" class="dislikeBtn">Not a fan🚫</button>
-                            <button type="button" class="watchBtn">Add to watch list</button>
-                    </div>
-
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Movie Title<i
-                                class="material-icons right">close</i></span>
-                        <p>Here is some more information about this movie that is only revealed once clicked on.</p>
+                            <button type="button" class="likeBtn" id="increment2">Like👍 </button>
+                            <button type="button" class="dislikeBtn" id="decrement2">Not a fan👎 </button>
+                            <button type="button" class="watchBtn">Add to watch list✅</button>
+                        <h5>👍 : <span id="count2">0</span></h5>
+                        <h5>👎 : <span id="downcount2">0</span></h5>
+                        <script>
+                        let count2 = 1;
+                        let downcount2 = 0;
+                        document.getElementById("increment2").addEventListener("click", function() {
+                        document.getElementById("count2").innerHTML = count2++;
+                        });
+                        document.getElementById("decrement2").addEventListener("click", function() {
+                        document.getElementById("downcount2").innerHTML = downcount2--;
+                        });
+                        </script>
                     </div>
                 </div>
             </div>
