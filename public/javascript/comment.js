@@ -1,15 +1,22 @@
 const commentFormHandler = async function(event) {
     event.preventDefault();
   
-    const postId = document.querySelector('input[name="post-id"]').value;
-    const body = document.querySelector('textarea[name="comment-body"]').value;
-  
-    if (body) {
-      await fetch('/api/comment', {
+   // const postId = document.querySelector('input[name="post-id"]').value;
+    const post_content = document.querySelector('textarea[name="comment_body"]').value;
+    var url = window.location.pathname;
+    const movie_id = url.substring(url.lastIndexOf('/') + 1);
+    // const title = url.substring(url.lastIndexOf('/') + 1);
+    if (post_content) {
+      await fetch('/api/comments', {
         method: 'POST',
         body: JSON.stringify({
-          postId,
-          body
+          post_content,
+          movie_id,
+          // title,
+          
+         
+          
+      
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -20,6 +27,4 @@ const commentFormHandler = async function(event) {
     }
   };
   
-  document
-    .querySelector('#new-comment-form')
-    .addEventListener('submit', commentFormHandler);  
+  document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);  
