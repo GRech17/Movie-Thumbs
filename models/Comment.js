@@ -10,44 +10,42 @@ Comment.init(
     
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-   
-     comment_text: {
-        type: DataTypes.STRING,
-        validate: {
-          
-          len: [1]
-        }
-      },
-  favorite_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'favorite',
-          key: 'id'
-        }
-    
-  },
-  user_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'user',
-      key: 'id'
+    // title:{
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
+  
+    movie_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    post_content: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
-
   },
-  },
- 
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'comment',
+    modelName: 'comment'
   }
 );
+
 
 module.exports = Comment;
