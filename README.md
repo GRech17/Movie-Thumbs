@@ -96,4 +96,6 @@
 
   ## Repo link: [readme-repo-link](https://github.com/GRech17/Movie-Thumbs)
    <br />
+   ## Repo link: [readme-repo-link](https://movie-thumbs.herokuapp.com/)
+   <br />
 

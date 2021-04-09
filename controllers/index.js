@@ -10,6 +10,8 @@ router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 router.use('/ToT', ToTRoutes);
 router.use('/lists', ListRoutes);
+
 router.use('/comment', CommentRoutes);
+
 
 module.exports = router;

@@ -10,6 +10,7 @@ Comment.init(
     
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
@@ -40,8 +41,12 @@ Comment.init(
     references: {
       model: 'user',
       key: 'id'
-    }
 
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: true
+
+    }
   },
 
   created_at: {
@@ -51,14 +56,14 @@ Comment.init(
 
 
   },
- 
+
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'comment',
+    modelName: 'comment'
   }
 );
+
 
 module.exports = Comment;

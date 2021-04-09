@@ -1,4 +1,5 @@
 const commentFormHandler = async function(event) {
+
   event.preventDefault();
 
   var url = window.location.pathname;

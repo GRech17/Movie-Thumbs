@@ -24,14 +24,14 @@ router.get('/', withAuth, (req, res) => {
               'title',
             ],
             include: [
-              {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'favorite_id', 'user_id'],
-                include: {
-                  model: User,
-                  attributes: ['username']
-                }
-              },
+              // {
+              //   model: Comment,
+              //   attributes: ['id', 'comment_text', 'favorite_id', 'user_id'],
+              //   include: {
+              //     model: User,
+              //     attributes: ['username']
+              //   }
+              // },
               {
                 model: User,
                 attributes: ['username']
@@ -56,14 +56,14 @@ router.get('/edit/:id', withAuth, (req, res) => {
         'title',
       ],
       include: [
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'favorite_id', 'user_id'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
+        // {
+        //   model: Comment,
+        //   attributes: ['id', 'comment_text', 'favorite_id', 'user_id'],
+        //   include: {
+        //     model: User,
+        //     attributes: ['username']
+        //   }
+        // },
         {
           model: User,
           attributes: ['username']
