@@ -42,13 +42,13 @@ router.post('/:movie_id', withAuth, (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
+  console.log(req);
+  if (req.session) {
+    Comment.create({
+      comment_text: req.body.comment_text
   // expects {title: 'Taskmaster goes public!', post_content, user_id: 1}
-  console.log(req.body);
-  Comment.create({
-      movie_id : req.body.movie_id,
-      post_content: req.body.post_content,
-      user_id: req.session.user_id,
-      title: req.session.title,
+      movie_id : req.body.movie_id
+      user_id: req.session.user_id
       created_at:Date.now()
     
     })
@@ -58,8 +58,25 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
       });
 });
-
+router.post('/:id', withAuth, (req, res) => {
+  console.log(req);
+  if (req.session) {
+      Comment.create({
+          comment_text: req.body.comment_text,
+          movie_id: req.params.id,
+          user_id: req.session.user_id,
+          favorite_id: req.body.favorite_id,
+          created_at: Date.now()
+      })
+          .then(dbCommentData => res.json(dbCommentData))
+          .catch(err => {
+              console.log(err);
+              res.status(400).json(err);
+          });
+  }
+});
 router.put('/:id', withAuth, (req, res) => {
+  
     Comment.update({
       post_content: req.body. post_content
     }, {

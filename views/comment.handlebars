@@ -1,0 +1,48 @@
+<div class="row">
+
+    <div class="card col s12">
+        <div class="card col s6">
+            <div class="card-image waves-effect waves-block waves-light">
+                {{!-- <img class="activator" src="images/office.jpg"> --}}
+            </div>
+
+            <div class="card-content">
+                {{displayed.title}}
+                <br>
+                <img src='https://www.themoviedb.org/t/p/w150_and_h225_bestv2/{{displayed.poster_path}}'> <br />
+                                                                                                          <span>{{displayed.overview}}</span>
+
+                <span class="card-title activator grey-text text-darken-4">
+                    <i class="material-icons right">more_vert</i>
+                </span>
+
+            </div>
+
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">
+                    Movie Title<i class="material-icons right">close</i>
+                </span>
+                <p>Here is some more information about this movie that is only revealed once clicked on.</p>
+            </div>
+        </div>
+
+  
+    </div>
+</div>
+
+<div>
+    <form class="frmComment">
+        Type your comment: <input type="text" name="comment_text" /> <input type="submit" value="Post" />
+    </form>
+</div>
+<br />
+<div>
+
+    {{#each posts as |post|}}
+    <span>{{movie_id}}</span>  - <span>{{comment_text}}</span> by <span>{{user.username}} on {{format_date created_at}} </span>
+    <br />
+
+    {{/each}}
+</div>
+
+<script src="/javascript/comment.js"></script>

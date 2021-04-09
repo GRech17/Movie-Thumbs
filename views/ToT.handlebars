@@ -15,13 +15,8 @@
                         {{#if @first}}
                         {{title}}
                         <br>
-                        <img src=https://www.themoviedb.org/t/p/w150_and_h225_bestv2/{{poster_path}}>
-                        <div class="is-pulled-right new-post-form">
-    
-                               <a href="single-post/{{id}}" type="submit">{{format_plural "comment"}}</a>
-                               </div>
-                        {{/if}}
-                        {{/each}}
+                        <img src=https://www.themoviedb.org/t/p/w150_and_h225_bestv2/{{poster_path}}>   
+                   
                         <span class="card-title activator grey-text text-darken-4"><i
                                 class="material-icons right">more_vert</i></span>
 
@@ -29,8 +24,15 @@
                             <button type="button" class="likeBtn" id="increment">Like👍 </button>
                             <button type="button" class="dislikeBtn" id="decrement">Not a fan👎 </button>
                             <button type="button" class="watchBtn">Add to watch list✅</button>
+                            <button type="button" onClick="location.href ='comment/{{id}}'" class="commentBtn">Comments</button>
+
                         <h5>👍 : <span id="count">0</span></h5>
                         <h5>👎 : <span id="downcount">0</span></h5>
+                        {{/if}}
+                        {{/each}}
+
+
+
                         <script>
                         let count = 1;
                         let downcount = 0;
@@ -57,12 +59,7 @@
                         {{title}}
                         <br>
                         <img src=https://www.themoviedb.org/t/p/w150_and_h225_bestv2/{{poster_path}}>
-                        <div class="is-pulled-right new-post-form">
-    
-                               <a href="single-post/{{id}}" type="submit">{{format_plural "comment"}}</a>
-                               </div>
-                        {{/if}}
-                        {{/each}}
+
                         <span class="card-title activator grey-text text-darken-4"><i
                                 class="material-icons right">more_vert</i></span>
 
@@ -70,8 +67,14 @@
                             <button type="button" class="likeBtn" id="increment2">Like👍 </button>
                             <button type="button" class="dislikeBtn" id="decrement2">Not a fan👎 </button>
                             <button type="button" class="watchBtn">Add to watch list✅</button>
+                            <button type="button" onClick="location.href ='comment/{{id}}'" class="commentBtn">Comments</button>
                         <h5>👍 : <span id="count2">0</span></h5>
                         <h5>👎 : <span id="downcount2">0</span></h5>
+                       {{/if}}
+                        {{/each}}
+
+
+
                         <script>
                         let count2 = 1;
                         let downcount2 = 0;

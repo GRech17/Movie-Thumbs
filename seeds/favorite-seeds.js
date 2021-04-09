@@ -5,8 +5,9 @@ const FavoriteData = [
     {
         listTitle: 'Liked Movies',
         title: "Zoolander",
-        posterImg: "",
+        posterImg:"",
         user_id: 5
+        
     }
 ]
 
