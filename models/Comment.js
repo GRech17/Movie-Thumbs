@@ -10,9 +10,14 @@ Comment.init(
     
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
+    movie_id: {
+      type: DataTypes.INTEGER,
+  allowNull: false
+   },
    
      comment_text: {
         type: DataTypes.STRING,
@@ -23,7 +28,7 @@ Comment.init(
       },
   favorite_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'favorite',
           key: 'id'
@@ -36,18 +41,29 @@ Comment.init(
     references: {
       model: 'user',
       key: 'id'
+
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: true
+
     }
+  },
+
+  created_at: {
+    type: DataTypes.DATE,
+    allowNull: true
+}
+
 
   },
-  },
- 
+
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'comment',
+    modelName: 'comment'
   }
 );
+
 
 module.exports = Comment;

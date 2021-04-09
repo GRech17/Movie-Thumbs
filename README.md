@@ -43,13 +43,16 @@
   
   *Demo*
 
-  View a demonstration of the application:
+   View a demonstration of the application:
   <br />
   
- ![alt text]( "Logo Title Text 1")
  <br />
 
- ![alt text]( "Logo Title Text 1")
+  ![](./picture1.PNG)
+
+  <br />
+  
+ ![](./picture2.PNG)
   
   ## Licence
   📝📑
@@ -92,5 +95,7 @@
   <br />
 
   ## Repo link: [readme-repo-link](https://github.com/GRech17/Movie-Thumbs)
+   <br />
+   ## Repo link: [readme-repo-link](https://movie-thumbs.herokuapp.com/)
    <br />
 

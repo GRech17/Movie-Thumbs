@@ -15,19 +15,28 @@
                         {{#if @first}}
                         {{title}}
                         <br>
-                        <img src=https://www.themoviedb.org/t/p/w150_and_h225_bestv2/{{poster_path}}>
-                        {{/if}}
-                        {{/each}}
+                        <img src=https://www.themoviedb.org/t/p/w150_and_h225_bestv2/{{poster_path}}>   
+                   
                         <span class="card-title activator grey-text text-darken-4"><i
                                 class="material-icons right">more_vert</i></span>
+
+
                             <button type="button" class="likeBtn" id="increment">Like👍 </button>
                             <button type="button" class="dislikeBtn" id="decrement">Not a fan👎 </button>
                             <button type="button" class="watchBtn">Add to watch list✅</button>
+                            <button type="button" onClick="location.href ='comment/{{id}}'" class="commentBtn">Comments</button>
+
                         <h5>👍 : <span id="count">0</span></h5>
                         <h5>👎 : <span id="downcount">0</span></h5>
+                        {{/if}}
+                        {{/each}}
+
+
+
                         <script>
                         let count = 1;
                         let downcount = 0;
+
 
                         document.getElementById("increment").addEventListener("click", function() {
                         document.getElementById("count").innerHTML = count++;
@@ -50,15 +59,22 @@
                         {{title}}
                         <br>
                         <img src=https://www.themoviedb.org/t/p/w150_and_h225_bestv2/{{poster_path}}>
-                        {{/if}}
-                        {{/each}}
+
                         <span class="card-title activator grey-text text-darken-4"><i
                                 class="material-icons right">more_vert</i></span>
+
+
                             <button type="button" class="likeBtn" id="increment2">Like👍 </button>
                             <button type="button" class="dislikeBtn" id="decrement2">Not a fan👎 </button>
                             <button type="button" class="watchBtn">Add to watch list✅</button>
+                            <button type="button" onClick="location.href ='comment/{{id}}'" class="commentBtn">Comments</button>
                         <h5>👍 : <span id="count2">0</span></h5>
                         <h5>👎 : <span id="downcount2">0</span></h5>
+                       {{/if}}
+                        {{/each}}
+
+
+
                         <script>
                         let count2 = 1;
                         let downcount2 = 0;
@@ -69,7 +85,9 @@
                         document.getElementById("downcount2").innerHTML = downcount2--;
                         });
                         </script>
+
                     </div>
                 </div>
             </div>
         </div>
+      
