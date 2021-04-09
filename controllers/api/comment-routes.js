@@ -25,6 +25,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
+  console.log(req);
   if (req.session) {
     Comment.create({
       comment_text: req.body.comment_text,
@@ -38,8 +39,25 @@ router.post('/', withAuth, (req, res) => {
       });
   }
 });
-
+router.post('/:id', withAuth, (req, res) => {
+  console.log(req);
+  if (req.session) {
+      Comment.create({
+          comment_text: req.body.comment_text,
+          movie_id: req.params.id,
+          user_id: req.session.user_id,
+          favorite_id: req.body.favorite_id,
+          created_at: Date.now()
+      })
+          .then(dbCommentData => res.json(dbCommentData))
+          .catch(err => {
+              console.log(err);
+              res.status(400).json(err);
+          });
+  }
+});
 router.put('/:id', withAuth, (req, res) => {
+  
     Comment.update({
         comment_text: req.body.comment_text
     }, {

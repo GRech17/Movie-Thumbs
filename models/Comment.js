@@ -13,6 +13,10 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true
     },
+    movie_id: {
+      type: DataTypes.INTEGER,
+  allowNull: false
+   },
    
      comment_text: {
         type: DataTypes.STRING,
@@ -23,7 +27,7 @@ Comment.init(
       },
   favorite_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'favorite',
           key: 'id'
@@ -39,6 +43,13 @@ Comment.init(
     }
 
   },
+
+  created_at: {
+    type: DataTypes.DATE,
+    allowNull: true
+}
+
+
   },
  
   {
