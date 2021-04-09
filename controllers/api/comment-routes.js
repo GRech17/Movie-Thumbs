@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
-
 router.get('/', (req, res) => {
   Comment.findAll()
     .then(dbCommentData => res.json(dbCommentData))
@@ -10,13 +9,11 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
 router.get('/:id', (req, res) => {
     Comment.findAll({
             where: {
                 id: req.params.id
-            },
-            attributes: ['id', 'post_content', 'movie_id', 'created_at'],
+            }
         })
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
@@ -24,39 +21,20 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         })
 });
-
-router.post('/:movie_id', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_content, user_id: 1}
-  console.log(req.body.movie_id);
-  Comment.create({
-      movie_id : req.body.movie_id,
-      post_content: req.body.post_content,
-      user_id: req.session.user_id,
-      created_at: Date.now()
-    })
-      .then(dbPostData => res.json(dbPostData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-});
-
 router.post('/', withAuth, (req, res) => {
   console.log(req);
   if (req.session) {
     Comment.create({
-      comment_text: req.body.comment_text
-  // expects {title: 'Taskmaster goes public!', post_content, user_id: 1}
-      movie_id : req.body.movie_id
-      user_id: req.session.user_id
-      created_at:Date.now()
-    
+      comment_text: req.body.comment_text,
+      user_id: req.session.user_id,
+      favorite_id: req.body.favorite_id
     })
-      .then(dbPostData => res.json(dbPostData))
+      .then(dbCommentData => res.json(dbCommentData))
       .catch(err => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(400).json(err);
       });
+  }
 });
 router.post('/:id', withAuth, (req, res) => {
   console.log(req);
@@ -76,9 +54,8 @@ router.post('/:id', withAuth, (req, res) => {
   }
 });
 router.put('/:id', withAuth, (req, res) => {
-  
     Comment.update({
-      post_content: req.body. post_content
+        comment_text: req.body.comment_text
     }, {
         where: {
             id: req.params.id
@@ -94,7 +71,6 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
 router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
       where: {
@@ -114,5 +90,18 @@ router.delete('/:id', withAuth, (req, res) => {
       });
   }
 );
-
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
