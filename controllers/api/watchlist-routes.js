@@ -1,27 +1,29 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
 const { User, Watchlist } = require('../../models');
+const { restore } = require('../../models/Watchlist');
 
 // get all users
-router.get('/', (req, res) => {
-   Watchlist.findAll({
+router.get('/', async (req, res) => {
+  try { 
+  const watchInfo = await Watchlist.findAll({
     attributes: [
       'id',
-      'movieTitle',
-      'user_id'
+      'movieTitle'
     ],
-    include: [
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
-  })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
+    // include: [
+    //   {
+    //     model: User,
+    //     attributes: ['username']
+    //   }
+    // ]
+   })
+   res.status (200).json(watchInfo); 
+    // .then(dbPostData => res.json(dbPostData))
+  }
+  catch(err) {
       console.log(err);
       res.status(500).json(err);
-    });
+    };
 });
 
 router.get('/:id', (req, res) => {
@@ -54,24 +56,30 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+  try {
   if (req.session) {
-    Watchlist.create({
-      title: req.body.title,
-      user_id: req.session.user_id
-    })
-      .then(dbPostData => res.json(dbPostData))
-      .catch(err => {
+const newWatch = await Watchlist.create(
+      req.body
+    )
+      // movieTitle: req.body.title,
+      // user_id: req.session.user_id,  
+    console.log(req.body);
+    res.status(200).json(newWatch)
+  }
+  }
+      // .then(dbPostData => res.json(dbPostData))
+      catch(err) {
         console.log(err);
         res.status(500).json(err);
-      });
+      };
   }
-});
+);
 
 router.put('/:id', (req, res) => {
   Watchlist.update(
     {
-      title: req.body.title
+      movieTitle: req.body.title
     },
     {
       where: {
