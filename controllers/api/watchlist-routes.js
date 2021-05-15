@@ -59,12 +59,14 @@ router.get('/:id', (req, res) => {
 router.post('/', async (req, res) => {
   try {
   if (req.session) {
+    console.log(req.body)
 const newWatch = await Watchlist.create(
-      req.body
+      {movieTitle: req.body}
+      // user_id: req.session.user_id, 
     )
       // movieTitle: req.body.title,
-      // user_id: req.session.user_id,  
-    console.log(req.body);
+        
+    console.log(req);
     res.status(200).json(newWatch)
   }
   }
