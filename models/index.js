@@ -2,6 +2,7 @@
 let Comment = require('./Comment');
 let Favorite = require('./Favorite');
 let User = require('./User');
+let Watchlist = require('./Watchlist')
 
 Comment.belongsTo(User, {
   foreignKey: 'user_id',
@@ -32,8 +33,17 @@ User.hasMany(Favorite, {
     foreignKey: 'user_id',
 });
 
+User.hasMany(Watchlist, {
+  foreignKey: 'user_id',
+});
+
+Watchlist.belongsTo(User, {
+  foreignKey: 'user_id',
+})
+
 module.exports = {
   Comment,
   Favorite,
   User,
+  Watchlist
 };
